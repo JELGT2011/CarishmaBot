@@ -1,3 +1,23 @@
+.portfolio-row {
+  margin: 5px 0;
+  border: 0;
+  padding: 0; }
 
+.portfolio-grid-item {
+  margin: 10px 5px;
+  border: 0;
+  padding: 0; }
+
+.spacing {
+  height: 40px; }
+
+#footer {
+  background-color: #0a625c;
+  color: #222222; }
+
+.social-media {
+  background-color: #0a625c; }
+  .social-media:hover {
+    background-color: white; }
 
 /*# sourceMappingURL=main.css.map */
