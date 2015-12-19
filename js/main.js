@@ -1,6 +1,8 @@
 (function ($, d3, OriDomi) {
   $(document).ready(function () {
 
+    g_photo_page = null
+
     $.tubeplayer.defaults.afterReady = function ($player) {
       $player.tubeplayer('volume', 0);
     };
@@ -32,31 +34,50 @@
       $(this).tubeplayer('volume', 0);
     });
 
-    g_video = $featured_video;
-
     var video_iframe = $featured_video.children();
     video_iframe.addClass('center-block');
 
-    var $book_page = $('.photo-page').first();
-    $book_page.css('background', "url('http://placehold.it/350x300/00ff00')")
+    var $photo_page = $('.photo-page').first()
+        .css('background', "url('http://placehold.it/350x300/00ff00')")
         .css('background-repeat', 'no-repeat')
         .css('background-position', "top left")
         .css('width', 350)
         .css('height', 300);
 
-
-    var photo_page = new OriDomi('.photo-page', {
-      vPanels: 5,
+    $photo_page.oriDomi({
+      vPanels: 10,
       hPanels: 5,
       ripple: true,
+      touchEnabled: false,
       shading: 'soft',
       perspective: 1000,
-      maxAngle: 350
+      maxAngle: 1800
     });
+
+    g_photo_page = $photo_page.oriDomi(true);
+    g_photo_page.current_page = true;
+
+    $photo_page.on('click', function(event) {
+      if (g_photo_page.current_page) {
+        g_photo_page.setSpeed(500).curl(-60).setSpeed(1000).ramp(-180);
+      } else {
+        g_photo_page.setSpeed(1000).ramp(0);
+      }
+      g_photo_page.current_page = !g_photo_page.current_page;
+    });
+
+    // var photo_page = new OriDomi('.photo-page', {
+    //  vPanels: 5,
+    //  hPanels: 5,
+    //  ripple: true,
+    //  shading: 'soft',
+    //  perspective: 1000,
+    //  maxAngle: 350
+    //});
 
     //photo_page.reveal();
     //photo_page.ramp(10);
-    photo_page.setSpeed(2000).curl(-40).ramp(-170);
+
 
     //photo_page.map(curl_corner)(-10);
     //
@@ -71,7 +92,7 @@
     //$portfolio.append('hi');
     //g_portfolio = $portfolio;
 
-    g_photo = $book_page;
+    g_photo = $photo_page;
 
     //var home_svg = d3.select('#home').appendChild('svg')
     //    .attr('width', 100)
