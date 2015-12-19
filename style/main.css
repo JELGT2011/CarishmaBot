@@ -1,23 +1,21 @@
-.portfolio-row {
-  margin: 5px 0;
-  border: 0;
-  padding: 0; }
-
-.portfolio-grid-item {
-  margin: 10px 5px;
-  border: 0;
-  padding: 0; }
-
 .spacing {
   height: 40px; }
 
 #footer {
-  background-color: #0a625c;
-  color: #222222; }
+  background-color: white;
+  color: black; }
+
+#home {
+  background-color: black;
+  padding: 40px 0;
+  color: white; }
 
 .social-media {
-  background-color: #0a625c; }
+  background-color: white; }
   .social-media:hover {
-    background-color: white; }
+    background-color: black; }
+
+.navbar {
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=main.css.map */
