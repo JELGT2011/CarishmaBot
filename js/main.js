@@ -1,7 +1,7 @@
 (function ($, d3, OriDomi) {
   $(document).ready(function () {
 
-    g_photo_page = null
+    g_photo_page = null;
 
     $.tubeplayer.defaults.afterReady = function ($player) {
       $player.tubeplayer('volume', 0);

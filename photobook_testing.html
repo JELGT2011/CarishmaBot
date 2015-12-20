@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photobook Testing</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="center-block">
+    <div class="photo-book center-block"></div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+<script src="js/plugins/jquery.oridomi.js"></script>
+<script>
+  (function ($, OriDomi) {
+    $(document).ready(function () {
+
+      function PhotoBook(target, image_urls, config) {
+
+        this._defaults = {
+          oriDomi: {
+            vPanels: 10,
+            hPanels: 5,
+            ripple: true,
+            touchEnabled: false,
+            shading: 'soft',
+            perspective: 1000,
+            maxAngle: 1800
+          }
+        };
+        this._photos = [];
+
+        this._target = target;
+        this._image_urls = image_urls || [];
+        this._config = config || this._defaults;
+
+        for (var i in image_urls) {
+          var $photo_page = $("<div></div>").appendTo(this._target)
+              .addClass('photo-page center-block')
+              .css('background', "url(" + image_urls[i] + ")")
+              .css('background-repeat', 'no-repeat')
+              .css('background-position', "top left")
+              .css('width', 350)
+              .css('height', 300);
+
+          $photo_page.oriDomi(this._defaults.oriDomi);
+          $photo_page._oriDomi = $photo_page.oriDomi(true);
+          $photo_page._oriDomi.current_page = true;
+
+          $photo_page.on('click', $photo_page, function (event) {
+            if (event.data._oriDomi.current_page) {
+              event.data._oriDomi.setSpeed(1000).curl(-80).ramp(-180);
+            } else {
+              event.data._oriDomi.setSpeed(1000).ramp(0);
+            }
+            event.data._oriDomi.current_page = !event.data._oriDomi.current_page;
+          });
+
+          this._photos.push($photo_page);
+        }
+
+      }
+
+      PhotoBook.prototype.add_image = function (image_url) {
+        this._image_urls.push(image_url);
+      };
+
+      var image_urls = ['http://placehold.it/350x300/00ffff'];
+      var photo_book = new PhotoBook($('.photo-book'), image_urls);
+
+
+    });
+  })(jQuery, OriDomi);
+</script>
+
+</body>
+</html>
