@@ -8,7 +8,7 @@
 
 <div class="container">
   <div class="center-block">
-    <div class="photo-book center-block"></div>
+    <div class="photo-book"></div>
   </div>
 </div>
 
@@ -21,11 +21,22 @@
 
       function PhotoBook(target, image_urls, config) {
 
+        var create_vPanels = function() {
+          var num_panels = 5;
+          var panel_size = 50 / num_panels;
+          var repeats = [];
+          for (var i = 0; i < num_panels; i++) {
+            repeats.push(panel_size)
+          }
+          repeats.unshift(50);
+          return repeats;
+        };
+
         this._defaults = {
           oriDomi: {
-            vPanels: 10,
+            vPanels: [50, 10, 10, 10, 10, 10],
             hPanels: 5,
-            ripple: true,
+            ripple: 1,
             touchEnabled: false,
             shading: 'soft',
             perspective: 1000,
@@ -38,13 +49,17 @@
         this._image_urls = image_urls || [];
         this._config = config || this._defaults;
 
-        for (var i in image_urls) {
+        if (this._image_urls.length % 2 !== 0) {
+          this._image_urls.push('http://placehold.it/350x300');
+        }
+
+        for (var i = 0; i < this._image_urls.length; i += 2) {
           var $photo_page = $("<div></div>").appendTo(this._target)
               .addClass('photo-page center-block')
-              .css('background', "url(" + image_urls[i] + ")")
-              .css('background-repeat', 'no-repeat')
-              .css('background-position', "top left")
-              .css('width', 350)
+              .css('background', "url(" + this._image_urls[i] + "), url(" + this._image_urls[i + 1] + ")")
+              .css('background-repeat', 'no-repeat, no-repeat')
+              .css('background-position', "top left, top right")
+              .css('width', 700)
               .css('height', 300);
 
           $photo_page.oriDomi(this._defaults.oriDomi);
@@ -53,9 +68,14 @@
 
           $photo_page.on('click', $photo_page, function (event) {
             if (event.data._oriDomi.current_page) {
-              event.data._oriDomi.setSpeed(1000).curl(-80).ramp(-180);
+              event.data._oriDomi.setSpeed(1000).curl(-80).ramp(-175);
+//              $(this)
+//                  .css('transform', 'scaleX(-1)')
+//                  .css('filter', 'FlipH');
+              this.style.zIndex += 10;
             } else {
               event.data._oriDomi.setSpeed(1000).ramp(0);
+              this.style.zIndex -= 10;
             }
             event.data._oriDomi.current_page = !event.data._oriDomi.current_page;
           });
@@ -69,7 +89,11 @@
         this._image_urls.push(image_url);
       };
 
-      var image_urls = ['http://placehold.it/350x300/00ffff'];
+      var image_urls = [
+        'http://placehold.it/350x300/00ffff',
+        'http://placehold.it/350x300/00ff00',
+        'http://placehold.it/350x300/000000'
+      ];
       var photo_book = new PhotoBook($('.photo-book'), image_urls);
 
 
