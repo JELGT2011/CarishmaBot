@@ -201,33 +201,36 @@
 		 * Youtube video background
 		/* ---------------------------------------------- */
 
-        $('#video-title').fadeOut(4000);
+        var $video_title = $('#video-title');
 
-		//if(mobileTest != true) {
-		//	$(function() {
-		//		$(".video-player").mb_YTPlayer();
-		//	});
-        //
-		//	$('.video-controls-box a').css('visibility', 'visible');
-        //
-		//	$('#video-play').click(function(event) {
-		//		event.preventDefault();
-		//		if ($(this).hasClass('fa-play')) {
-		//			$('.video-player').playYTP();
-		//		} else {
-		//			$('.video-player').pauseYTP();
-		//		}
-		//		$(this).toggleClass('fa-play fa-pause');
-		//		return false;
-		//	});
-        //
-		//	$('#video-volume').click(function(event) {
-		//		event.preventDefault();
-		//		$('.video-player').toggleVolume();
-		//		$(this).toggleClass('fa-volume-off fa-volume-up');
-		//		return false;
-		//	});
-		//}
+		if(mobileTest != true) {
+			$(function() {
+                var $video_player = $(".video-player").mb_YTPlayer();
+                $video_player.on("YTPStart", function(event) {
+                    $video_title.fadeOut(2000);
+                });
+			});
+
+			$('.video-controls-box a').css('visibility', 'visible');
+
+			$('#video-play').click(function(event) {
+				event.preventDefault();
+				if ($(this).hasClass('fa-play')) {
+					$('.video-player').playYTP();
+				} else {
+					$('.video-player').pauseYTP();
+				}
+				$(this).toggleClass('fa-play fa-pause');
+				return false;
+			});
+
+			$('#video-volume').click(function(event) {
+				event.preventDefault();
+				$('.video-player').toggleVolume();
+				$(this).toggleClass('fa-volume-off fa-volume-up');
+				return false;
+			});
+		}
 
 		/* ---------------------------------------------- /*
 		 * Portfolio
@@ -337,6 +340,9 @@
             }
             $this.effect("bounce", { times: 1 }, 500);
         });
+
+        // TODO: edit video player settings
+        // TODO: set auto scrolling behavior
 
 	});
 

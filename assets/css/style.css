@@ -717,6 +717,7 @@ Sections
 	   -moz-background-size: cover;
 		 -o-background-size: cover;
 			background-size: cover;
+	margin: 50px 0 0 0;
 }
 
 .module-small {
@@ -736,7 +737,7 @@ Sections
 
 .module-title {
 	position: relative;
-	margin: 0 0 70px;
+	margin: 0 0 30px;
 	letter-spacing: 0.15em;
 	font-size: 30px;
 	color: #000;
@@ -841,6 +842,7 @@ Footer
 ------------------------------------------------------------------- */
 
 .footer {
+	margin: 30px 0 0 0;
 	background: #f5f5f5;
 	padding: 20px 0;
 }

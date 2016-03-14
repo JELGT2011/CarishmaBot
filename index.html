@@ -62,7 +62,7 @@
 
 <!-- HOME -->
 <section id="home" class="module-hero module-parallax module-fade bg-dark-30"
-         data-background="http://placehold.it/1920x1280.png">
+         data-background="https://i3.ytimg.com//vi/rWWX0-TQhyc/default.jpg">
 
     <div id="video-title" class="hs-caption container">
         <div class="caption-content">
@@ -72,10 +72,18 @@
         </div>
     </div>
 
-    <!-- TODO: change video URL -->
     <!-- Youtube player start-->
     <div class="video-player"
-         data-property="{videoURL:'https://www.youtube.com/watch?v=rWWX0-TQhyc', containment:'.module-hero', startAt:0, mute:false, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, vol:25}"></div>
+         data-property="{
+             videoURL: 'https://www.youtube.com/watch?v=rWWX0-TQhyc',
+             containment: '.module-hero',
+             mute: true,
+             autoPlay: true,
+             loop: true,
+             showYTLogo: true,
+             vol: 25
+         }">
+    </div>
     <!-- Youtube player end -->
 
     <!-- Youtube controls start-->
@@ -96,20 +104,15 @@
 <div class="wrapper">
 
     <!-- ABOUT -->
-    <section id="about" class="module p-t-0 p-b-0" data-background="http://placehold.it/1920x1280.png">
+    <section id="about" class="module p-t-0 p-b-0">
 
-        <div class="container-fluid">
+        <div class="container">
 
             <div class="row relative">
 
-                <div class="col-sm-12 col-md-6 col-md-offset-6 col-bg">
+                <div class="col-sm-12 col-md-6">
 
                     <h2 class="module-title font-alt">About Me</h2>
-
-                    <!--<div class="module-subtitle font-inc">-->
-                    <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.-->
-                    <!--Aenean massa.-->
-                    <!--</div>-->
 
                     <p>
                         The languages only differ in their grammar, their pronunciation and their most common words.
@@ -134,6 +137,10 @@
                     <br>
                     <br>
 
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+
                     <ul class="social-list">
                         <li>
                             <a href="https://www.linkedin.com/in/carishma-chinoy-256aa037">
@@ -151,7 +158,9 @@
                             </a>
                         </li>
                     </ul>
+                    <br>
 
+                    <img src="http://placehold.it/1920x1280.png" alt="">
                 </div>
 
             </div>
@@ -162,83 +171,87 @@
     <!-- /ABOUT -->
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="module-small p-t-20 p-b-0 p-t-sm-0">
+    <section id="portfolio" class="module p-t-20 p-b-0 p-t-sm-0">
 
-        <h2 class="module-title font-alt text-center">Portfolio</h2>
+        <div class="container">
 
-        <div class="container hidden-xs">
+            <h2 class="module-title font-alt text-center">Portfolio</h2>
 
-            <!-- PORTFOLIO FILTER -->
-            <div class="row">
-                <div class="col-sm-12">
+            <div class="hidden-xs">
 
-                    <ul id="filters" class="filter font-inc">
-                        <li><a href="#" data-filter="*">All</a></li>
-                        <li><a href="#" data-filter=".photography">Photography</a></li>
-                        <li><a href="#" data-filter=".videography">Videography</a></li>
-                        <li><a href="#" data-filter=".course-work">Course Work</a></li>
-                    </ul>
+                <!-- PORTFOLIO FILTER -->
+                <div class="row">
+                    <div class="col-sm-12">
 
+                        <ul id="filters" class="filter font-inc">
+                            <li><a href="#" data-filter="*">All</a></li>
+                            <li><a href="#" data-filter=".photography">Photography</a></li>
+                            <li><a href="#" data-filter=".videography">Videography</a></li>
+                            <li><a href="#" data-filter=".course-work">Course Work</a></li>
+                        </ul>
+
+                    </div>
                 </div>
+                <!-- /PORTFOLIO FILTER -->
+
             </div>
-            <!-- /PORTFOLIO FILTER -->
+
+            <!-- PORTFOLIO LIST -->
+            <ul id="works-grid" class="works-grid works-grid-masonry works-grid-3 works-hover-w">
+
+                <!-- TODO: fill these out -->
+                <!-- PORTFOLIO ITEM -->
+                <li class="work-item photography">
+                    <a href="portfolio-single-1.html">
+                        <div class="work-image">
+                            <img src="http://placehold.it/1920x1280.png" alt="">
+                        </div>
+                        <div class="work-caption">
+                            <h3 class="work-title font-alt">Photography Example</h3>
+                            <div class="work-descr font-inc">
+                                Photography
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!-- /PORTFOLIO ITEM -->
+
+                <!-- PORTFOLIO ITEM -->
+                <li class="work-item videography">
+                    <a href="portfolio-single-1.html">
+                        <div class="work-image">
+                            <img src="http://placehold.it/1920x1280.png" alt="">
+                        </div>
+                        <div class="work-caption">
+                            <h3 class="work-title font-alt">Videography Example</h3>
+                            <div class="work-descr font-inc">
+                                Videography
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!-- /PORTFOLIO ITEM -->
+
+                <!-- PORTFOLIO ITEM -->
+                <li class="work-item course-work photography">
+                    <a href="portfolio-single-1.html">
+                        <div class="work-image">
+                            <img src="http://placehold.it/1920x1280.png" alt="">
+                        </div>
+                        <div class="work-caption">
+                            <h3 class="work-title font-alt">Photography and Course Work Example</h3>
+                            <div class="work-descr font-inc">
+                                Photography &amp; Course Work
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <!-- /PORTFOLIO ITEM -->
+
+            </ul>
+            <!-- /PORTFOLIO LIST -->
 
         </div>
-
-        <!-- PORTFOLIO LIST -->
-        <ul id="works-grid" class="works-grid works-grid-masonry works-grid-3 works-hover-w">
-
-            <!-- TODO: fill these out -->
-            <!-- PORTFOLIO ITEM -->
-            <li class="work-item photography">
-                <a href="portfolio-single-1.html">
-                    <div class="work-image">
-                        <img src="http://placehold.it/1920x1280.png" alt="">
-                    </div>
-                    <div class="work-caption">
-                        <h3 class="work-title font-alt">Photography Example</h3>
-                        <div class="work-descr font-inc">
-                            Photography
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <!-- /PORTFOLIO ITEM -->
-
-            <!-- PORTFOLIO ITEM -->
-            <li class="work-item videography">
-                <a href="portfolio-single-1.html">
-                    <div class="work-image">
-                        <img src="http://placehold.it/1920x1280.png" alt="">
-                    </div>
-                    <div class="work-caption">
-                        <h3 class="work-title font-alt">Videography Example</h3>
-                        <div class="work-descr font-inc">
-                            Videography
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <!-- /PORTFOLIO ITEM -->
-
-            <!-- PORTFOLIO ITEM -->
-            <li class="work-item course-work photography">
-                <a href="portfolio-single-1.html">
-                    <div class="work-image">
-                        <img src="http://placehold.it/1920x1280.png" alt="">
-                    </div>
-                    <div class="work-caption">
-                        <h3 class="work-title font-alt">Photography and Course Work Example</h3>
-                        <div class="work-descr font-inc">
-                            Photography &amp; Course Work
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <!-- /PORTFOLIO ITEM -->
-
-        </ul>
-        <!-- /PORTFOLIO LIST -->
 
     </section>
     <!-- /PORTFOLIO -->
