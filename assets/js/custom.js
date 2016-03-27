@@ -341,9 +341,7 @@
             $this.effect("bounce", { times: 1 }, 500);
         });
 
-        // TODO: edit video player settings
         // TODO: set auto scrolling behavior
-        // TODO: why the video player so slow?
 
 		// Google Analytics
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
