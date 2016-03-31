@@ -219,8 +219,8 @@
 			width: video_width,
 			height: video_height,
 			initialVideo: 'rWWX0-TQhyc',
-			showControls: false,
-			autoPlay: true,
+			showControls: true,
+			autoPlay: false,
 			modestbranding: false
 		});
 
@@ -237,36 +237,7 @@
 
 
 		var $video_title = $('#video-title');
-		$video_title.fadeOut(2000);
-
-		// if(mobileTest != true) {
-		// 	$(function() {
-         //        var $video_player = $(".video-player").mb_YTPlayer();
-         //        $video_player.on("YTPStart", function(event) {
-         //            $video_title.fadeOut(2000);
-         //        });
-		// 	});
-        //
-		// 	$('.video-controls-box a').css('visibility', 'visible');
-        //
-		// 	$('#video-play').click(function(event) {
-		// 		event.preventDefault();
-		// 		if ($(this).hasClass('fa-play')) {
-		// 			$('.video-player').playYTP();
-		// 		} else {
-		// 			$('.video-player').pauseYTP();
-		// 		}
-		// 		$(this).toggleClass('fa-play fa-pause');
-		// 		return false;
-		// 	});
-        //
-		// 	$('#video-volume').click(function(event) {
-		// 		event.preventDefault();
-		// 		$('.video-player').toggleVolume();
-		// 		$(this).toggleClass('fa-volume-off fa-volume-up');
-		// 		return false;
-		// 	});
-		// }
+		// $video_title.fadeOut(2000);
 
 		/* ---------------------------------------------- /*
 		 * Portfolio
