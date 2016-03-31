@@ -162,7 +162,7 @@
 					}
 				});
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Navbar hover dropdown on desktop
@@ -195,42 +195,78 @@
 					$(this).parent().toggleClass('open');
 				});
 			}
-		};
+		}
 
 		/* ---------------------------------------------- /*
 		 * Youtube video background
 		/* ---------------------------------------------- */
 
-        var $video_title = $('#video-title');
+		$.tubeplayer.defaults.afterReady = function($player) {
+			$player.tubeplayer('volume', 0);
+		};
 
-		if(mobileTest != true) {
-			$(function() {
-                var $video_player = $(".video-player").mb_YTPlayer();
-                $video_player.on("YTPStart", function(event) {
-                    $video_title.fadeOut(2000);
-                });
-			});
+		var VIDEO_BORDER = 100;
+		var MAX_VIDEO_WIDTH = 1000;
+		var MIN_VIDEO_WIDTH = 400;
+		var ASPECT_RATIO = 16 / 9;
 
-			$('.video-controls-box a').css('visibility', 'visible');
+		var $featured_video = $('#featured-video');
 
-			$('#video-play').click(function(event) {
-				event.preventDefault();
-				if ($(this).hasClass('fa-play')) {
-					$('.video-player').playYTP();
-				} else {
-					$('.video-player').pauseYTP();
-				}
-				$(this).toggleClass('fa-play fa-pause');
-				return false;
-			});
+		var video_width = Math.max(MIN_VIDEO_WIDTH, Math.min(MAX_VIDEO_WIDTH, $featured_video.parent().width() - VIDEO_BORDER));
+		var video_height = video_width / ASPECT_RATIO;
 
-			$('#video-volume').click(function(event) {
-				event.preventDefault();
-				$('.video-player').toggleVolume();
-				$(this).toggleClass('fa-volume-off fa-volume-up');
-				return false;
-			});
-		}
+		$featured_video.tubeplayer({
+			width: video_width,
+			height: video_height,
+			initialVideo: 'rWWX0-TQhyc',
+			showControls: false,
+			autoPlay: true,
+			modestbranding: false
+		});
+
+		$featured_video.mouseenter(function (event) {
+			$(this).tubeplayer('volume', 80);
+		});
+
+		$featured_video.mouseleave(function (event) {
+			$(this).tubeplayer('volume', 0);
+		});
+
+		var video_iframe = $featured_video.children();
+		video_iframe.addClass('center-block');
+
+
+		var $video_title = $('#video-title');
+		$video_title.fadeOut(2000);
+
+		// if(mobileTest != true) {
+		// 	$(function() {
+         //        var $video_player = $(".video-player").mb_YTPlayer();
+         //        $video_player.on("YTPStart", function(event) {
+         //            $video_title.fadeOut(2000);
+         //        });
+		// 	});
+        //
+		// 	$('.video-controls-box a').css('visibility', 'visible');
+        //
+		// 	$('#video-play').click(function(event) {
+		// 		event.preventDefault();
+		// 		if ($(this).hasClass('fa-play')) {
+		// 			$('.video-player').playYTP();
+		// 		} else {
+		// 			$('.video-player').pauseYTP();
+		// 		}
+		// 		$(this).toggleClass('fa-play fa-pause');
+		// 		return false;
+		// 	});
+        //
+		// 	$('#video-volume').click(function(event) {
+		// 		event.preventDefault();
+		// 		$('.video-player').toggleVolume();
+		// 		$(this).toggleClass('fa-volume-off fa-volume-up');
+		// 		return false;
+		// 	});
+		// }
 
 		/* ---------------------------------------------- /*
 		 * Portfolio

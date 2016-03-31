@@ -60,10 +60,8 @@
 </nav>
 <!-- /NAVIGATION -->
 
-<!-- TODO: find a better video module -->
 <!-- HOME -->
-<section id="home" class="module-hero module-parallax module-fade bg-dark-30"
-         data-background="assets/images/Oranges.png">
+<section id="home" class="bg-dark">
 
     <div id="video-title" class="hs-caption container">
         <div class="caption-content">
@@ -74,29 +72,8 @@
     </div>
 
     <!-- Youtube player start-->
-    <div class="video-player"
-         data-property="{
-             videoURL: 'https://www.youtube.com/watch?v=rWWX0-TQhyc',
-             containment: '.module-hero',
-             mute: true,
-             autoPlay: true,
-             loop: true,
-             showYTLogo: true,
-             vol: 25
-         }">
-    </div>
+    <div id="featured-video" class="video-player"></div>
     <!-- Youtube player end -->
-
-    <!-- Youtube controls start-->
-    <div class="video-controls-box">
-        <div class="container">
-            <div class="video-controls">
-                <a id="video-volume" class="fa fa-volume-up" href="#">&nbsp;</a>
-                <a id="video-play" class="fa fa-pause" href="#">&nbsp;</a>
-            </div>
-        </div>
-    </div>
-    <!-- Youtube controls end -->
 
 </section>
 <!-- /HOME -->
@@ -375,7 +352,8 @@
 <script src="assets/js/jquery-2.1.3.min.js"></script>
 <script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+<!--<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>-->
+<script src="assets/js/jquery.tubeplayer.js"></script>
 <script src="assets/js/appear.js"></script>
 <script src="assets/js/jquery.simple-text-rotator.min.js"></script>
 <script src="assets/js/isotope.pkgd.min.js"></script>
