@@ -220,7 +220,7 @@
 			height: video_height,
 			initialVideo: 'rWWX0-TQhyc',
 			showControls: true,
-			autoPlay: false,
+			autoPlay: true,
 			modestbranding: false
 		});
 
