@@ -218,7 +218,7 @@
 		$featured_video.tubeplayer({
 			width: video_width,
 			height: video_height,
-			initialVideo: 'rWWX0-TQhyc',
+			initialVideo: 'zE0m4fpymrs',
 			showControls: true,
 			autoPlay: true,
 			modestbranding: false
@@ -359,6 +359,16 @@
 		ga('create', 'UA-75045795-2', 'auto');
 		ga('send', 'pageview');
 
+		// Youtube popup player
+		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+
+			fixedContentPos: false
+		});
 	});
 
 })(jQuery);
