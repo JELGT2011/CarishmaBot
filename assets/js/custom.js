@@ -218,7 +218,7 @@
 		$featured_video.tubeplayer({
 			width: video_width,
 			height: video_height,
-			initialVideo: 'rWWX0-TQhyc',
+			initialVideo: 'zE0m4fpymrs',
 			showControls: true,
 			autoPlay: true,
 			modestbranding: false
