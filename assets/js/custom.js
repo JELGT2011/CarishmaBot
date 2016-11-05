@@ -359,6 +359,16 @@
 		ga('create', 'UA-75045795-2', 'auto');
 		ga('send', 'pageview');
 
+		// Youtube popup player
+		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+
+			fixedContentPos: false
+		});
 	});
 
 })(jQuery);
